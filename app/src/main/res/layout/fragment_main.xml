@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:orientation="vertical"
+    android:background="@color/white">
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+android:background="@color/colorPrimary"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_alignTop="@+id/searchview"
+            android:src="@drawable/ic_search_white_24dp"/>
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchview"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+android:layout_toRightOf="@+id/search"
+            android:layout_toLeftOf="@+id/refresh"
+            app:searchIcon="@null"
+            android:background="@color/colorPrimary"
+            android:outlineAmbientShadowColor="@color/colorPrimary"
+            android:outlineSpotShadowColor="@color/colorPrimary"
+            />
+        <ImageView
+            android:id="@+id/refresh"
+            android:layout_width="30dp"
+android:layout_alignParentEnd="true"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+
+            android:src="@drawable/ic_refresh_black_24dp"/>
+    </RelativeLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_categories_offer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/itemrecycler_offers"
+                android:layout_width="match_parent"
+                android:nestedScrollingEnabled="false"
+                android:layout_height="match_parent"
+                />
+
+
+
+
+</LinearLayout>
+</LinearLayout>

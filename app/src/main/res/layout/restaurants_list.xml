@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+android:id="@+id/secondCard"
+android:layout_margin="10dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+app:cardBackgroundColor="@color/white"
+app:cardElevation="10dp"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/im"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_menu_camera"
+        />
+
+    <RelativeLayout
+        android:id="@+id/relativeLytVideo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLytFilePath"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="visible"
+
+        >
+
+        <ImageView
+            android:id="@+id/pdf_img"
+            android:visibility="gone"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            />
+        <ImageView
+            android:id="@+id/doc_img"
+            android:visibility="gone"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            />
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/excel_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/txtNoAttach"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_marginRight="30dp"
+        android:id="@+id/Title"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/im"
+        android:textSize="16sp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="RESTAURANT NAME"/>
+    <TextView
+        android:id="@+id/publishNme"
+        android:layout_below="@+id/Title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/im"
+        android:textSize="13sp"
+        android:fontFamily="@font/roboto_light"
+        android:text="DESCRIPTION1"
+        />
+
+    <TextView
+        android:id="@+id/prce"
+        android:layout_below="@+id/publishNme"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/im"
+        android:textSize="13sp"
+        android:fontFamily="@font/roboto_light"
+        android:text="DESCRIPTION2"
+        />
+
+
+    <TextView
+        android:id="@+id/unread_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8% Off"
+        android:fontFamily="@font/roboto_light"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentRight="true"
+        />
+
+    <RelativeLayout
+        android:id="@+id/priceadd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prce"
+        android:layout_toRightOf="@+id/im"
+
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentRight="true"
+            android:gravity="end">
+            <Button
+                android:id="@+id/plus"
+                android:layout_width="25dp"
+                android:layout_height="40dp"
+
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:text=""/>
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:text="1"
+                android:gravity="center"
+                android:textColor="@color/black"
+
+                android:layout_toRightOf="@+id/plus"
+
+                />
+            <Button
+                android:id="@+id/minus"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/quantity"
+
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:text=""/>
+        </RelativeLayout>
+        <Button
+
+            android:layout_marginTop="10dp"
+            android:id="@+id/outofstock"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:text="Activate"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/roboto_light"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

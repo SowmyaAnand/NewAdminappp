@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="colorControlNormal">#c5c5c5</item>
+
+    </style>
+    <style name="MyCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Theme.MyTheme.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:textColorHint">#000000</item>
+        <item name="editTextColor">#000000</item>
+
+        <item name="background">@color/white</item>
+        <!-- your other custom widget styles -->
+    </style>
+<style name="fontforselectedsubcategory">
+    <item name = "android:fontFamily">@font/roboto_medium</item>
+</style>
+    <style name="fontfornormalsubcategory">
+        <item name = "android:fontFamily">@font/roboto_light</item>
+    </style>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".FirstpopUp">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+<ImageView
+    android:id="@+id/first_popup_img"
+    android:layout_width="match_parent"
+    android:src="@drawable/ic_image_black_24dp"
+    android:layout_height="400dp"/>
+    <Button
+        android:id="@+id/addImageFirstPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD IMAGE"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        />
+    <Button
+        android:id="@+id/editImageFirstPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EDIT UPLOADED IMAGE"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        />
+    <Button
+        android:id="@+id/saveFirstPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        />
+    <Button
+        android:id="@+id/edit_saveFirstPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        />
+</LinearLayout>

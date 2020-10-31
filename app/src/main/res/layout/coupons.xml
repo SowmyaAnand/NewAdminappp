@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/secondCard"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+
+        <TextView
+            android:layout_marginRight="30dp"
+            android:id="@+id/coupon_nm_card"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/img_orders"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_medium"
+           />
+        <TextView
+            android:id="@+id/copuon_desc_card"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_orders"
+            android:textSize="13sp"
+            android:fontFamily="@font/roboto_light"
+
+            />
+
+        <TextView
+            android:id="@+id/coupon_prcnt_card"
+            android:layout_below="@+id/publishNme_orders"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_orders"
+            android:textSize="13sp"
+            android:fontFamily="@font/roboto_light"
+
+            />
+       <Button
+           android:id="@+id/save_coupon"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="10dp"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:text="ACTIVATE"
+           android:background="@color/colorPrimary"
+           android:textColor="@color/white"
+           />
+
+
+
+   </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

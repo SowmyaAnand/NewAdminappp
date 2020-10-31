@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".PendingOrdersDescription">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/secondCard"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/gray"
+        app:cardElevation="10dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <RelativeLayout android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <LinearLayout
+                android:id="@+id/relOrderno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+
+                android:padding="20dp"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ORDER SUMMARY"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:weightSum="10">
+                    <TextView
+                        android:id="@+id/order_common_no"
+                        android:layout_width="match_parent"
+                        android:text="ORDER NO"
+                        android:layout_weight="6"
+
+                        android:textColor="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/order_common_no_text_description"
+                        android:layout_width="match_parent"
+                        android:text="ORDER NO"
+                        android:layout_weight="3"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:weightSum="10">
+                    <TextView
+                        android:id="@+id/order_common_total"
+                        android:layout_width="match_parent"
+                        android:text="TOTAL AMOUNT"
+                        android:layout_weight="6"
+
+                        android:textColor="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/order_common_total_text_description"
+                        android:layout_width="match_parent"
+                        android:text="TOTAL AMOUNT"
+                        android:layout_weight="3"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:weightSum="10">
+                    <TextView
+                        android:id="@+id/order_coupon_applied_total_description"
+                        android:layout_width="match_parent"
+                        android:text="COUPON APPLIED"
+                        android:layout_weight="6"
+
+                        android:textColor="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/order_coupon_applied_total_text_description"
+                        android:layout_width="match_parent"
+                        android:text="COUPON NAME"
+                        android:layout_weight="3"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/order_common_address"
+                        android:layout_width="match_parent"
+                        android:text="ADDRESS"
+                        android:layout_weight="6"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/order_common_address_text_description"
+                        android:layout_width="match_parent"
+                        android:text="ADDRESS"
+                        android:layout_weight="3"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/order_common_pincode"
+                        android:layout_width="match_parent"
+                        android:text="PINCODE"
+                        android:layout_weight="6"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/order_common_pincode_text_description"
+                        android:layout_width="match_parent"
+                        android:text="PINCODE"
+                        android:layout_weight="3"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/order_common_paymentmode"
+                        android:layout_width="match_parent"
+                        android:text="PAYMENT MODE"
+                        android:layout_weight="6"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/order_common_paymentmode_text_description"
+                        android:layout_width="match_parent"
+                        android:text="PAYMENT MODE"
+                        android:layout_weight="3"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="ORDER ITEMS"
+    android:textColor="@color/colorPrimary"
+    android:textAlignment="center"
+    android:layout_marginTop="20dp"
+    android:fontFamily="@font/roboto_medium"
+    android:gravity="center_horizontal" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemrecycler_offers_pending_desc"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
