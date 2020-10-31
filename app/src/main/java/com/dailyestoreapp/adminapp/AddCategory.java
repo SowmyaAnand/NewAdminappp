@@ -109,6 +109,7 @@ public class AddCategory extends AppCompatActivity {
         else if ((sbnewname==null)||(sbnewname.length()==0))
         {
           Toast.makeText(AddCategory.this,"Please enter sub category name",Toast.LENGTH_SHORT).show();
+          Toast.makeText(AddCategory.this,"Please enter sub category name",Toast.LENGTH_SHORT).show();
         }
         else
         {
