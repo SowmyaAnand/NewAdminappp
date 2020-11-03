@@ -5,7 +5,13 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class ListCategoryResponseData {
+    @SerializedName("bookingType")
+    @Expose
+    private String bookingType;
 
+    @SerializedName("preBookingDate")
+    @Expose
+    private String preBookingDate;
     @SerializedName("paymentType")
     @Expose
     private String paymentType;
@@ -554,5 +560,20 @@ public class ListCategoryResponseData {
         this.type = type;
     }
 
+    public String getbookingType() {
+        return bookingType;
+    }
 
+    public void setbookingType(String bookingType) {
+        this.bookingType = bookingType;
+    }
+
+
+    public String getpreBookingDate() {
+        return preBookingDate;
+    }
+
+    public void setpreBookingDate(String preBookingDate) {
+        this.preBookingDate = preBookingDate;
+    }
 }

@@ -1,14 +1,19 @@
 package com.dailyestoreapp.adminapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,17 +35,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PendingFragment extends Fragment {
     RecyclerView recyclerView_offers;
 ACProgressFlower dialog;
+TextView reload;
     PendingNotificationAdapterOrderList customAdapter_offers_pending;
    // ArrayList personNames_offers = new ArrayList<>(Arrays.asList("ITEM1", "ITEM2", "ITEM3", "ITEM4", "ITEM5", "ITEM6", "ITEM7"));
    ArrayList<String> item_image_pending = new ArrayList<>();
     ArrayList<String> pending_orders_list_array_item = new ArrayList<>();
     ArrayList<String> pending_orders_list_array_address = new ArrayList<>();
+    ArrayList<String> pending_orders_preorderes_book_type = new ArrayList<>();
+    ArrayList<String> pending_orders_preorderes_book_date = new ArrayList<>();
     ArrayList<String> pending_orders_list_array_satus = new ArrayList<>();
     ArrayList<String> offer_desc = new ArrayList<>();
     ArrayList<String> orders_list_array_quantity_pending = new ArrayList<>();
     ArrayList<String> orders_list_array_amount_pending = new ArrayList<>();
     ArrayList<Integer> pending_orders_list_array_orderid = new ArrayList<>();
     ArrayList<String> common_order_no = new ArrayList<>();
+    ArrayList<String> common_order_no_createdat = new ArrayList<>();
     ArrayList<Integer> common_order_noo = new ArrayList<>();
     ArrayList<String> payment_typeadapter_pending = new ArrayList<>();
     ArrayList<String> payment_typeadapter_postcode = new ArrayList<>();
@@ -50,15 +59,23 @@ ACProgressFlower dialog;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         order_no_val=0;
-        View root = inflater.inflate(R.layout.pendingrequests, container, false);
+        final View root = inflater.inflate(R.layout.pendingrequests, container, false);
         pending_orders_list();
+//        reload = root.findViewById(R.id.reload);
+//        reload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FragmentTransaction ft =getFragmentManager().beginTransaction();
+//                ft.detach(PendingFragment.this).attach(PendingFragment.this).commit();
+//        }
+//    });
         recyclerView_offers = (RecyclerView) root.findViewById(R.id.itemrecycler_offers_pending);
         // set a LinearLayoutManager with default vertical orientation
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(root.getContext());
         recyclerView_offers.setLayoutManager(linearLayoutManager);
         //  call the constructor of CustomAdapter to send the reference and data to Adapter
 
-        customAdapter_offers_pending = new PendingNotificationAdapterOrderList(root.getContext(),pending_orders_list_array_address,pending_orders_list_array_item,pending_orders_list_array_satus,pending_orders_list_array_orderid,orders_list_array_quantity_pending,orders_list_array_amount_pending,item_image_pending,payment_typeadapter_pending,count_typeadapter_pending, order_Date_pending,offer_desc,payment_typeadapter_postcode,common_order_noo);
+        customAdapter_offers_pending = new PendingNotificationAdapterOrderList(root.getContext(),pending_orders_list_array_address,pending_orders_list_array_item,pending_orders_list_array_satus,pending_orders_list_array_orderid,orders_list_array_quantity_pending,orders_list_array_amount_pending,item_image_pending,payment_typeadapter_pending,count_typeadapter_pending, order_Date_pending,offer_desc,payment_typeadapter_postcode,common_order_noo,pending_orders_preorderes_book_type,pending_orders_preorderes_book_date);
         recyclerView_offers.setAdapter(customAdapter_offers_pending);
         return root;
 
@@ -126,6 +143,9 @@ ACProgressFlower dialog;
                                 String pay_type =dt.getpaymentType();
                                 String pay_text="";
                                 String ptcode= dt.getPostCode();
+                                String bk_type=dt.getbookingType();
+                                String bk_date=dt.getpreBookingDate();
+                                String created_at = dt.getCreatedAt();
                                 if(pay_type.equals("0"))
                                 {
 
@@ -139,6 +159,8 @@ ACProgressFlower dialog;
                                     payment_typeadapter_pending.add(pay_text);
                                   //  payment_typeadapter_postcode.add(ptcode);
                                 count_typeadapter_pending.add(count);
+                                pending_orders_preorderes_book_date.add(bk_date);
+
                                 order_Date_pending.add(order_dt);
                                 offer_desc.add(offer_descc);
                                 pending_orders_list_array_satus.add(status);
@@ -152,23 +174,81 @@ ACProgressFlower dialog;
                                 {
                                     order_no_val=1;
                                     common_order_no.add(address);
+                                    common_order_no_createdat.add(created_at);
                                     common_order_noo.add(order_no_val);
                                     pending_orders_list_array_address.add(address);
                                     payment_typeadapter_postcode.add(ptcode);
+                                    Log.e("pedning","bktype=frst"+bk_type);
+                                    pending_orders_preorderes_book_type.add(bk_type);
                                 }
-                                else if(!(common_order_no.contains(address)))
+                                else if((!(common_order_no.contains(address)))&&(bk_type.equals("0")))
                                 {
                                     order_no_val=order_no_val+1;
                                     common_order_no.add(address);
+                                    common_order_no_createdat.add(created_at);
                                     common_order_noo.add(order_no_val);
                                     pending_orders_list_array_address.add(address);
                                     payment_typeadapter_postcode.add(ptcode);
+                                    pending_orders_preorderes_book_type.add(bk_type);
+                                    Log.e("pedning","bktype=0"+bk_type);
                                 }
+
+                             else if((!(common_order_no.contains(address)))&&(bk_type.equals("1")))
+                                {
+                                    order_no_val=order_no_val+1;
+                                    common_order_no.add(address);
+                                    common_order_no_createdat.add(created_at);
+                                    common_order_noo.add(order_no_val);
+                                    pending_orders_list_array_address.add(address);
+                                    payment_typeadapter_postcode.add(ptcode);
+                                    pending_orders_preorderes_book_type.add(bk_type);
+                                    Log.e("pedning","bktype=1"+bk_type);
+                                }
+//                                else if(((common_order_no.contains(address)))&&(bk_type.equals("0"))&&(common_order_no_createdat.contains(created_at)))
+//                                {
+//                                    int address_index= common_order_no.indexOf(address);
+//                                    int created_index= common_order_no_createdat.indexOf(created_at);
+//                                    if(!(address_index==created_index))
+//                                    {
+//                                        order_no_val=order_no_val+1;
+//                                        common_order_no.add(address);
+//                                        common_order_noo.add(order_no_val);
+//                                        pending_orders_list_array_address.add(address);
+//                                        payment_typeadapter_postcode.add(ptcode);
+//                                    }
+//                                    else
+//                                    {
+//                                        common_order_no.add(address);
+//                                        //  common_order_noo.add(0);
+//                                    }
+//
+//                                }
+//
+//                                else if(((common_order_no.contains(address)))&&(bk_type.equals("1"))&&(common_order_no_createdat.contains(created_at)))
+//                                {
+//                                    int address_index= common_order_no.indexOf(address);
+//                                    int created_index= common_order_no_createdat.indexOf(created_at);
+//                                    if(!(address_index==created_index)) {
+//                                        order_no_val = order_no_val + 1;
+//                                        common_order_no.add(address);
+//                                        common_order_noo.add(order_no_val);
+//                                        pending_orders_list_array_address.add(address);
+//                                        payment_typeadapter_postcode.add(ptcode);
+//                                    }
+//                                    else
+//                                    {
+//                                        common_order_no.add(address);
+//                                        //  common_order_noo.add(0);
+//                                    }
+//                                }
                                 else
                                 {
                                     common_order_no.add(address);
-                                  //  common_order_noo.add(0);
+                                    Log.e("pedning","bktype=else"+bk_type);
+                                    pending_orders_preorderes_book_type.add(bk_type);
+                                    //  common_order_noo.add(0);
                                 }
+
                             }
 
                         }

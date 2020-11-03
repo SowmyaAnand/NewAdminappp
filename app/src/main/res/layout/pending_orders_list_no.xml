@@ -22,6 +22,16 @@
 
             android:padding="20dp"
             >
+            <TextView
+                android:id="@+id/preorder_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PREORDER"
+                android:textColor="@color/colorPrimaryDark"
+                android:textAlignment="center"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

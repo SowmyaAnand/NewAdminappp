@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,7 +50,8 @@ public class PendingNotificationAdapter extends RecyclerView.Adapter<PendingNoti
     Context context;
   Integer orderid_adapter;
   Integer order_common=0;
-
+    ArrayList<String> pending_orders_preorderes_book_type = new ArrayList<>();
+    ArrayList<String> pending_orders_preorderes_book_date = new ArrayList<>();
     ArrayList<String> lts=new ArrayList<String>();
     ArrayList<String> pending_orders_list_array_item_image = new ArrayList<>();
     ArrayList<String> common_order_no = new ArrayList<>();
@@ -67,7 +69,7 @@ public class PendingNotificationAdapter extends RecyclerView.Adapter<PendingNoti
     ArrayList<String> common_order_noo_adapter = new ArrayList<>();
     //ArrayList pending_orders_list_array_item_offers = new ArrayList<>(Arrays.asList("ITEM1", "ITEM2", "ITEM3", "ITEM4", "ITEM5", "ITEM6", "ITEM7"));
     int quantity=1;
-    public PendingNotificationAdapter(Context context, ArrayList<String> pending_orders_list_array_address,ArrayList<String> pending_orders_list_array_item, ArrayList<String> pending_orders_list_array_satus, ArrayList<Integer> pending_orders_list_array_orderid,ArrayList<String> pending_orders_list_array_qnty,ArrayList<String> pending_orders_list_array_amnt,ArrayList<String> pending_orders_list_array_item_img,    ArrayList<String> payment_typeadapter_pending_adpater, ArrayList<String> count_typeadapter_pending_adapter,ArrayList<String> order_Date_pending_adapter,ArrayList<String> offer_desc,ArrayList<String> pending_orders_list_array_item_postcode,ArrayList<String> common_order_noo_adapter) {
+    public PendingNotificationAdapter(Context context, ArrayList<String> pending_orders_list_array_address,ArrayList<String> pending_orders_list_array_item, ArrayList<String> pending_orders_list_array_satus, ArrayList<Integer> pending_orders_list_array_orderid,ArrayList<String> pending_orders_list_array_qnty,ArrayList<String> pending_orders_list_array_amnt,ArrayList<String> pending_orders_list_array_item_img,    ArrayList<String> payment_typeadapter_pending_adpater, ArrayList<String> count_typeadapter_pending_adapter,ArrayList<String> order_Date_pending_adapter,ArrayList<String> offer_desc,ArrayList<String> pending_orders_list_array_item_postcode,ArrayList<String> common_order_noo_adapter,ArrayList<String> pending_orders_preorderes_book_type,ArrayList<String> pending_orders_preorderes_book_date) {
         this.context = context;
         this.pending_orders_list_array_address=pending_orders_list_array_address;
         this.pending_orders_list_array_item_image=pending_orders_list_array_item_img;
@@ -84,7 +86,8 @@ public class PendingNotificationAdapter extends RecyclerView.Adapter<PendingNoti
                         this.pending_orders_list_array_item_postcode=pending_orders_list_array_item_postcode;
         this.lts.addAll(pending_orders_list_array_item);
          order_common=0;
-
+        this.pending_orders_preorderes_book_type=pending_orders_preorderes_book_type;
+        this.pending_orders_preorderes_book_date=pending_orders_preorderes_book_date;
     }
     @Override
     public PendingNotificationAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -102,6 +105,19 @@ public class PendingNotificationAdapter extends RecyclerView.Adapter<PendingNoti
         String pin =  pending_orders_list_array_item_postcode.get(position);
         String name = pending_orders_list_array_item.get(position);
         holder.name_pending.setText(name);
+        String b_type = pending_orders_preorderes_book_type.get(position);
+        String b_date = pending_orders_preorderes_book_date.get(position);
+        if(b_type.equals("1"))
+        {
+            holder.pre.setVisibility(View.VISIBLE);
+            holder.l1.setVisibility(View.VISIBLE);
+            holder.pre_dt.setText(b_date);
+        }
+        else
+        {
+            holder.pre.setVisibility(View.GONE);
+            holder.l1.setVisibility(View.GONE);
+        }
         String address = pending_orders_list_array_address.get(position);
      //   holder.address_pending.setText(address);
         String co  = common_order_noo_adapter.get(position);
@@ -245,9 +261,10 @@ Log.e("pending","changes_status_val="+changes_status_val);
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name_pending,address_pending,q_pending,p_pending,pay_type_pending,cnt_pending,dt_pending,ofr_description;// init the item view's
-        TextView pincode;
+        TextView pincode,pre,pre_dt;
         Button pd_pending;
         ImageView pImage;
+        LinearLayout l1;
         TextView ordernoo_vl;
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -261,6 +278,9 @@ Log.e("pending","changes_status_val="+changes_status_val);
             cnt_pending=itemView.findViewById(R.id.count_pending);
             dt_pending=itemView.findViewById(R.id.oder_date_pending);
             ofr_description=itemView.findViewById(R.id.offer_desc);
+            pre=itemView.findViewById(R.id.preorder_title);
+            pre_dt=itemView.findViewById(R.id.preorder_dt);
+            l1=itemView.findViewById(R.id.pre_linear);
            // pincode=itemView.findViewById(R.id.pincode_pending);
           //  ordernoo_vl=itemView.findViewById(R.id.order_common_no_text);
             // get the reference of item view's

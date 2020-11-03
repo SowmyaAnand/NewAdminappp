@@ -25,13 +25,44 @@
             android:src="@drawable/mob41"
             />
 
+<LinearLayout
+    android:id="@+id/pre_linear"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="10"
+    android:layout_toRightOf="@+id/img_pending"
+    android:orientation="horizontal">
+            <TextView
+    android:id="@+id/preorder_title"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+                android:layout_weight="3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/colorPrimary"
+    android:layout_toRightOf="@+id/img_pending"
+    android:textSize="13sp"
 
+    android:text="PREORDER"/>
+    <TextView
+        android:id="@+id/preorder_dt"
+        android:layout_weight="7"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
 
+        android:textSize="13sp"
+
+        android:text=""/>
+</LinearLayout>
         <TextView
             android:layout_marginRight="30dp"
             android:id="@+id/Title_pending"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_below="@+id/pre_linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"

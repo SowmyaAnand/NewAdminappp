@@ -40,6 +40,8 @@ public class PendingNotificationAdapterOrderList extends RecyclerView.Adapter<Pe
     Context context;
     Integer orderid_adapter;
     Integer order_common=0;
+    ArrayList<String> pending_orders_preorderes_book_type = new ArrayList<>();
+    ArrayList<String> pending_orders_preorderes_book_date = new ArrayList<>();
     ACProgressFlower dialog;
     ArrayList<String> lts=new ArrayList<String>();
     ArrayList<String> pending_orders_list_array_item_image = new ArrayList<>();
@@ -58,7 +60,7 @@ public class PendingNotificationAdapterOrderList extends RecyclerView.Adapter<Pe
     ArrayList<Integer> common_order_noo_adapter = new ArrayList<>();
     //ArrayList pending_orders_list_array_item_offers = new ArrayList<>(Arrays.asList("ITEM1", "ITEM2", "ITEM3", "ITEM4", "ITEM5", "ITEM6", "ITEM7"));
     int quantity=1;
-    public PendingNotificationAdapterOrderList(Context context, ArrayList<String> pending_orders_list_array_address,ArrayList<String> pending_orders_list_array_item, ArrayList<String> pending_orders_list_array_satus, ArrayList<Integer> pending_orders_list_array_orderid,ArrayList<String> pending_orders_list_array_qnty,ArrayList<String> pending_orders_list_array_amnt,ArrayList<String> pending_orders_list_array_item_img,    ArrayList<String> payment_typeadapter_pending_adpater, ArrayList<String> count_typeadapter_pending_adapter,ArrayList<String> order_Date_pending_adapter,ArrayList<String> offer_desc,ArrayList<String> pending_orders_list_array_item_postcode,ArrayList<Integer> common_order_noo_adapter) {
+    public PendingNotificationAdapterOrderList(Context context, ArrayList<String> pending_orders_list_array_address,ArrayList<String> pending_orders_list_array_item, ArrayList<String> pending_orders_list_array_satus, ArrayList<Integer> pending_orders_list_array_orderid,ArrayList<String> pending_orders_list_array_qnty,ArrayList<String> pending_orders_list_array_amnt,ArrayList<String> pending_orders_list_array_item_img,    ArrayList<String> payment_typeadapter_pending_adpater, ArrayList<String> count_typeadapter_pending_adapter,ArrayList<String> order_Date_pending_adapter,ArrayList<String> offer_desc,ArrayList<String> pending_orders_list_array_item_postcode,ArrayList<Integer> common_order_noo_adapter,ArrayList<String> pending_orders_preorderes_book_type,ArrayList<String> pending_orders_preorderes_book_date) {
         this.context = context;
         this.pending_orders_list_array_address=pending_orders_list_array_address;
         this.pending_orders_list_array_item_image=pending_orders_list_array_item_img;
@@ -75,6 +77,8 @@ public class PendingNotificationAdapterOrderList extends RecyclerView.Adapter<Pe
         this.pending_orders_list_array_item_postcode=pending_orders_list_array_item_postcode;
         this.lts.addAll(pending_orders_list_array_item);
         order_common=0;
+        this.pending_orders_preorderes_book_type=pending_orders_preorderes_book_type;
+        this.pending_orders_preorderes_book_date=pending_orders_preorderes_book_date;
 
     }
     @Override
@@ -99,6 +103,19 @@ public class PendingNotificationAdapterOrderList extends RecyclerView.Adapter<Pe
        holder.address_pending.setText(address);
         String pin_string = pin;
         holder.pincode.setText(pin_string);
+        Log.e("adapter", "address="+pending_orders_list_array_address);
+        Log.e("adapter", "address="+pending_orders_preorderes_book_type);
+
+        final String pre_book_type =pending_orders_preorderes_book_type.get(position);
+        holder.preorder_heading.setVisibility(View.GONE);
+//        if(pre_book_type.equals("1"))
+//        {
+//            holder.preorder_heading.setVisibility(View.VISIBLE);
+//        }
+//        else
+//        {
+//            holder.preorder_heading.setVisibility(View.GONE);
+//        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +124,7 @@ Intent orderdes = new Intent(context,PendingOrdersDescription.class);
 //Add your data to bundle
                 bundle.putString("address", address);
                 bundle.putString("orderNo", stringco);
-
+                bundle.putString("pre_book_type",pre_book_type);
 //Add the bundle to the intent
                 orderdes.putExtras(bundle);
                 context.startActivity(orderdes);
@@ -245,6 +262,7 @@ Intent orderdes = new Intent(context,PendingOrdersDescription.class);
         TextView pincode;
         Button pd_pending;
         ImageView pImage;
+        TextView preorder_heading;
         TextView ordernoo_vl;
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -259,6 +277,7 @@ Intent orderdes = new Intent(context,PendingOrdersDescription.class);
 //            dt_pending=itemView.findViewById(R.id.oder_date_pending);
 //            ofr_description=itemView.findViewById(R.id.offer_desc);
             pincode=itemView.findViewById(R.id.order_common_pincode_text);
+            preorder_heading=itemView.findViewById(R.id.preorder_heading);
             ordernoo_vl=itemView.findViewById(R.id.order_common_no_text);
             // get the reference of item view's
 

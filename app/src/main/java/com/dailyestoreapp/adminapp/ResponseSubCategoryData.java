@@ -10,8 +10,13 @@ public class ResponseSubCategoryData {
     @Expose
     private String subId;
 
+    @SerializedName("bookingType")
+    @Expose
+    private String bookingType;
 
-
+    @SerializedName("preBookingDate")
+    @Expose
+    private String preBookingDate;
 
 
     @SerializedName("typeId")
@@ -76,6 +81,24 @@ public class ResponseSubCategoryData {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+
+
+    public String getbookingType() {
+        return bookingType;
+    }
+
+    public void setbookingType(String bookingType) {
+        this.bookingType = bookingType;
+    }
+
+
+    public String getpreBookingDate() {
+        return preBookingDate;
+    }
+
+    public void setpreBookingDate(String preBookingDate) {
+        this.preBookingDate = preBookingDate;
     }
 
 }
