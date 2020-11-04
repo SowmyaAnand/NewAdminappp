@@ -73,11 +73,11 @@ holder.payment_type_orders.setText(payment_typeadapter_pending_adpater.get(posit
         // set the data in items
         if(orders_list_array_item_status.get(position).equals("1"))
         {
-            holder.ordr_ststus.setText(" APPROVED");
+            holder.ordr_ststus.setText(" DELIVERED");
         }
         else if(orders_list_array_item_status.get(position).equals("3"))
         {
-            holder.ordr_ststus.setText("REPLACEMENT APPROVED");
+            holder.ordr_ststus.setText("REPLACEMENT DELIVERED");
         }
         if(orders_list_adapter_item.size()>0)
         {

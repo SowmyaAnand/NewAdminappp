@@ -158,12 +158,12 @@ public class PendingNotificationAdapter extends RecyclerView.Adapter<PendingNoti
         int intial_status_val = Integer.parseInt(st);
         if(intial_status_val==1)
         {
-            holder.pd_pending.setText("Approved");
+            holder.pd_pending.setText("DELIVERED");
             holder.pd_pending.setBackgroundColor(ContextCompat.getColor(context, green));
         }
         else if(intial_status_val==3)
         {
-            holder.pd_pending.setText("Return Approved");
+            holder.pd_pending.setText("RETURN DELIVERED");
             holder.pd_pending.setBackgroundColor(ContextCompat.getColor(context, green));
         }
 if(pending_orders_list_array_satus.get(position).equals("2"))
@@ -178,12 +178,12 @@ if(pending_orders_list_array_satus.get(position).equals("2"))
                 int changes_status_val=1;
                 if(intial_status_val==0)
                 {
-                    holder.pd_pending.setText("Approved");
+                    holder.pd_pending.setText("DELIVERED");
                     changes_status_val=1;
                 }
                 else if(intial_status_val==2)
                 {
-                    holder.pd_pending.setText("Return Approved");
+                    holder.pd_pending.setText("RETURN DELIVERED");
                     changes_status_val=3;
                 }
 Log.e("pending","changes_status_val="+changes_status_val);
@@ -221,10 +221,10 @@ Log.e("pending","changes_status_val="+changes_status_val);
 
                             if(success==1)
                             {
-                                holder.pd_pending.setText("Approved");
+                                holder.pd_pending.setText("DELIVERED");
                                 holder.pd_pending.setTextColor(ContextCompat.getColor(context, white));
                                 holder.pd_pending.setBackgroundColor(ContextCompat.getColor(context, green));
-                                Toast.makeText(context,"Aproved",Toast.LENGTH_LONG).show();
+                                Toast.makeText(context,"DELIVERED",Toast.LENGTH_LONG).show();
                             }
                             else {
                                 Toast.makeText(context,"No Data found",Toast.LENGTH_LONG).show();
