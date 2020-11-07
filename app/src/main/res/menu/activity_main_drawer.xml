@@ -34,7 +34,7 @@
     <item android:title="About Developer">
         <menu>
             <item android:id="@+id/aboutdeveloper"
-                android:title="abc@123"/>
+                android:title="sowmyaanand2509@gmail.com"/>
         </menu>
     </item>
 </menu>

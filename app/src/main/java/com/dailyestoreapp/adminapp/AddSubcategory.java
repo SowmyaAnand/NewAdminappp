@@ -94,45 +94,42 @@ public class AddSubcategory extends AppCompatActivity {
         SharedPreferences shared2 = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         String savedString = shared2.getString("categories_no_new", "subId");
         String[] numbers = savedString.split(",");//if spaces are uneven, use \\s+ instead of " "
-        categoriescatno_edit_new.add(0);
+        if(!(savedString.isEmpty())) {
+            categoriescatno_edit_new.add(0);
 
-        for (String number : numbers) {
-            categoriescatno_edit_new.add(Integer.valueOf(number));
+            for (String number : numbers) {
+                categoriescatno_edit_new.add(Integer.valueOf(number));
+            }
+
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, categorylist);
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            Category_spinner_new.setAdapter(adapter);
+            Category_spinner_new.setOnItemSelectedListener(new AddSubcategory.CategoriesSpinnerClass());
+            savesubcategory_new.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sbnewname_new = sbcategoryname_new.getText().toString();
+                    if ((selectedPathsub_new == null) || (selectedPathsub_new.length() == 0)) {
+                        Toast.makeText(AddSubcategory.this, "Please select an image", Toast.LENGTH_SHORT).show();
+                    } else if ((sbnewname_new == null) || (sbnewname_new.length() == 0)) {
+                        Toast.makeText(AddSubcategory.this, "Please enter sub category name", Toast.LENGTH_SHORT).show();
+                    } else {
+                        uploadSubCategory(subImage_new, sbnewname_new, "1");
+                    }
+
+                }
+            });
+            sbaddattachcategory_new.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CropImage.activity()
+                            .start(AddSubcategory.this);
+                }
+            });
         }
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, categorylist);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Category_spinner_new.setAdapter(adapter);
-        Category_spinner_new.setOnItemSelectedListener(new AddSubcategory.CategoriesSpinnerClass());
-        savesubcategory_new.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sbnewname_new=sbcategoryname_new.getText().toString();
-                if((selectedPathsub_new==null)||(selectedPathsub_new.length()==0))
-                {
-                    Toast.makeText(AddSubcategory.this,"Please select an image",Toast.LENGTH_SHORT).show();
-                }
-                else if ((sbnewname_new==null)||(sbnewname_new.length()==0))
-                {
-                    Toast.makeText(AddSubcategory.this,"Please enter sub category name",Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    uploadSubCategory(subImage_new,sbnewname_new,"1");
-                }
-
-            }
-        });
-        sbaddattachcategory_new.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CropImage.activity()
-                        .start(AddSubcategory.this);
-            }
-        });
         
     }
 

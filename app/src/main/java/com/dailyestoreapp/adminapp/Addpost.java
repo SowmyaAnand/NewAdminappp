@@ -224,31 +224,23 @@ EditText post_itemname,post_amount,post_offer,post_description,post_quantity,qty
         SharedPreferences shared2 = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         String savedString = shared2.getString("categories_no_new", "subId");
         String[] numbers = savedString.split(",");//if spaces are uneven, use \\s+ instead of " "
+        if(!(savedString.isEmpty()))
+        {
+
+
 categoriescatno_edit.add(0);
 matchingcategoriescatno_edit.add(0);
 subcategoriescatno_edit.add(0);
+
         for (String number : numbers) {
             categoriescatno_edit.add(Integer.valueOf(number));
         }
 
-//// sub_Cat_number
-//        SharedPreferences shared3 = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-//        String savedString3 = shared3.getString("sub_categories_no", "");
-//
-//
-//        String[] numbers_sub = savedString3.split(",");//if spaces are uneven, use \\s+ instead of " "
-//
-//        for (String number : numbers_sub) {
-//            if()
-//            subcategoriescatno_edit.add(Integer.valueOf(number));
-//        }
-////// sub_Cat_ name
+
         subcategorylist1 = new ArrayList<String>();
-//        SharedPreferences shared4 = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-//        Set<String> set4 = shared4.getStringSet("categories", null);
+
 //
         subcategorylist1.add("Select Sub Category");
-//        subcategorylist1.addAll(set4);
 
 
 
@@ -271,6 +263,7 @@ subcategoriescatno_edit.add(0);
                         .start(Addpost.this);
             }
         });
+        }
     }
 
     @Override

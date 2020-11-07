@@ -102,96 +102,39 @@ Log.e("homefragment","the catgeories shared preference are ="+savedcatString);
 
             }
 
-
+        Log.e("cat_home","cat home num="+ categoriesHomeNo2.size());
         Log.e("cat_home","cat home num="+categoriesHomeNo2);
         category_selected=categoriesHome.get(0);
 
+if(categoriesHomeNo2.size()>0)
+{
+    final SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getContext(),getChildFragmentManager(),categoriesHome);
+    // frag4 = new Fragment4();
+    for(int i = 0;i<categoriesHomeNo2.size();i++)
+    {
+
+        category_selected=categoriesHome.get(i);
+        category_selected_no=categoriesHomeNo2.get(i);
+        Bundle bundle = new Bundle();
+        bundle.putInt("category", category_selected_no);
+        Fragment4 mapFragment2 = new Fragment4();
+        mapFragment2.setArguments(bundle);
+
+        Log.e("tag","tag cat fragment4"+category_selected_no);
+
+        sectionsPagerAdapter.addFragment(mapFragment2,categoriesHome.get(i));
 
 
-        final SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getContext(),getChildFragmentManager(),categoriesHome);
-       // frag4 = new Fragment4();
-        for(int i = 0;i<categoriesHome.size();i++)
-        {
 
-            category_selected=categoriesHome.get(i);
-            category_selected_no=categoriesHomeNo2.get(i);
-            Bundle bundle = new Bundle();
-                bundle.putInt("category", category_selected_no);
-                Fragment4 mapFragment2 = new Fragment4();
-                mapFragment2.setArguments(bundle);
+    }
 
-                Log.e("tag","tag cat fragment4"+categoriesHome.get(i));
-
-                    sectionsPagerAdapter.addFragment(mapFragment2,categoriesHome.get(i));
+    ViewPager viewPager =root.findViewById(R.id.view_pager2);
+    viewPager.setAdapter(sectionsPagerAdapter);
+    TabLayout tabs = root.findViewById(R.id.tabs);
+    tabs.setupWithViewPager(viewPager);
+}
 
 
-//            if(category_selected.equals("Food"))
-//            {
-//
-//
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("category", category_selected_no);
-//                Fragment4 mapFragment2 = new Fragment4();
-//                mapFragment2.setArguments(bundle);
-//
-//                Log.e("tag","tag cat fragment4"+categoriesHome.get(i));
-//
-//                sectionsPagerAdapter.addFragment(mapFragment2,categoriesHome.get(i));
-//            }
-//           else if (i==0)  //api integrating in this
-//            {
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("category", category_selected_no);
-//                Fragment4 mapFragment2 = new Fragment4();
-//                mapFragment2.setArguments(bundle);
-//
-//
-//                Log.e("tag","tag cat fragment4"+categoriesHome.get(i));
-//
-//                sectionsPagerAdapter.addFragment(mapFragment2,categoriesHome.get(i));
-//
-//            }
-//            else if(i==1)
-//            {
-////                Bundle bundle = new Bundle();
-////                bundle.putString("category", category_selected);
-////                Fragment2 mapFragment4 = new Fragment2(category_selected,categoriesHomeNo2.get(i));
-////                mapFragment4.setArguments(bundle);
-////
-////
-////                Log.e("tag","tag cat fragment4"+categoriesHome.get(i));
-////
-////                sectionsPagerAdapter.addFragment(mapFragment4,categoriesHome.get(i));
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("category", category_selected_no);
-//                Fragment4 mapFragment2 = new Fragment4();
-//                mapFragment2.setArguments(bundle);
-//
-//
-//                Log.e("tag","tag cat fragment4"+categoriesHome.get(i));
-//
-//                sectionsPagerAdapter.addFragment(mapFragment2,categoriesHome.get(i));
-//
-//            }
-//            else
-//            {
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("category", category_selected_no);
-//                Fragment2 mapFragment4 = new Fragment2(category_selected,categoriesHomeNo2.get(i));
-//                mapFragment4.setArguments(bundle);
-//
-//
-//                Log.e("tag","tag cat fragment4"+categoriesHome.get(i));
-//
-//                sectionsPagerAdapter.addFragment(mapFragment4,categoriesHome.get(i));
-//            }
-
-        }
-
-        ViewPager viewPager =root.findViewById(R.id.view_pager2);
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = root.findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
 
         return root;
     }

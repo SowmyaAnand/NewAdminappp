@@ -134,7 +134,7 @@
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/Gray"
-                android:hint="ADD AMOUNT"
+                android:hint="ADD DESCRIPTION (BUTY 1 GET ONE FREE ETC) "
                 android:fontFamily="@font/roboto_light"
                 android:singleLine="true"
                 android:maxLength="60"/>

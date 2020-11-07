@@ -84,11 +84,11 @@ logout.setOnClickListener(new View.OnClickListener() {
             Toast.makeText(MyAccount.this,"Please fill all details",Toast.LENGTH_LONG).show();
             return 0;
         }
-        else if (mob_account.getText().length()!=10)
-        {
-            Toast.makeText(MyAccount.this,"Invalid Mobile Number",Toast.LENGTH_LONG).show();
-            return 0;
-        }
+//        else if (mob_account.getText().length()!=10)
+//        {
+//            Toast.makeText(MyAccount.this,"Invalid Mobile Number",Toast.LENGTH_LONG).show();
+//            return 0;
+//        }
         return 1;
     }
     private void userdetailsB(String subId)
@@ -122,6 +122,7 @@ logout.setOnClickListener(new View.OnClickListener() {
 
                     if(success==1)
                     {
+                        Log.e(tag,"error"+success);
                         int data_length = response.body().getResponsedata().getData().size();
                        String name_accountVal =  response.body().getResponsedata().getData().get(0).getFirstName();
                         String mob_accountVal =  response.body().getResponsedata().getData().get(0).getPhone();
@@ -195,7 +196,7 @@ logout.setOnClickListener(new View.OnClickListener() {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-
+                    Log.e(tag,"error my account="+e);
                     Toast.makeText(MyAccount.this,"something went wrong",Toast.LENGTH_SHORT).show();
                 }
 

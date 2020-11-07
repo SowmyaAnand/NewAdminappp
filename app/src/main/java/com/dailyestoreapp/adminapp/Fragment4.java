@@ -217,8 +217,12 @@ public void change()
                     customadapter2_offers.notifyDataSetChanged();
                     Log.e(tag,"sub_cat inside Activate"+Sub_categories);
 //                    dialog.dismiss();
-                    selectedSubCategoryNo=1;
-                   ItemsList(Sub_categories_id.get(0),start,limit);
+                    if(Sub_categories_id.size()>0)
+                    {
+                        selectedSubCategoryNo=1;
+                        ItemsList(Sub_categories_id.get(0),start,limit);
+                    }
+
 
 
                     //personNames_offers = new ArrayList<>(Arrays.asList("farg4ITEM1", "frag4ITEM2", "ITEM3", "ITEM4", "ITEM5", "ITEM6"));
@@ -521,6 +525,7 @@ Log.e("the text is","text"+newText);
         super.onActivityCreated(savedInstanceState);
 
         if (getArguments() != null) {
+            Log.e("frag","onactivitycreated  category from pass"+  getArguments().getString("category"));
             cat_selected = getArguments().getString("category");
         }
         Log.e("frag","onactivitycreated  category from pass"+ cat_selected);

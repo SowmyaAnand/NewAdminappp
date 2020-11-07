@@ -111,33 +111,34 @@ public void couponList()
             String success = response.body().getResponsedata().getSuccess();
 
             Log.e("frag4","success="+success);
+            int len = response.body().getResponsedata().getData().size();
+            Log.e("couponsedit","length"+len);
             try {
-                if(success.equals("1"))
-                {
-                    String cpNames,cpDesc;
+                if(success.equals("1")) {
+                    for (int i = 0; i < len; i++) {
 
-                    Integer percnt,st,cpId;
-                    cpNames = response.body().getResponsedata().getData().get(1).getCouponName();
-                    cpDesc = response.body().getResponsedata().getData().get(1).getDescription();
-                    percnt = Integer.parseInt(response.body().getResponsedata().getData().get(1).getPercent());
+                    String cpNames, cpDesc;
 
-                    int len = response.body().getResponsedata().getData().size();
-                    Log.e("couponsedit","length"+len);
+                    Integer percnt, st, cpId;
+                    cpNames = response.body().getResponsedata().getData().get(i).getCouponName();
+                    cpDesc = response.body().getResponsedata().getData().get(i).getDescription();
+                    percnt = Integer.parseInt(response.body().getResponsedata().getData().get(i).getPercent());
+
+//                    int len = response.body().getResponsedata().getData().size();
+//                    Log.e("couponsedit","length"+len);
                     Coupon_Names.clear();
                     Coupon_Desc.clear();
                     Coupon_percentage.clear();
                     Coupon_status.clear();
                     Coupon_id.clear();
-                    for(int i=0;i<len;i++)
-                    {
+                    for (int j = 0; j< len; j++) {
                         cpNames = response.body().getResponsedata().getData().get(i).getCouponName();
                         cpDesc = response.body().getResponsedata().getData().get(i).getDescription();
                         percnt = Integer.parseInt(response.body().getResponsedata().getData().get(i).getPercent());
                         st = Integer.valueOf(response.body().getResponsedata().getData().get(i).getStatus());
-                        cpId= Integer.valueOf(response.body().getResponsedata().getData().get(i).getCouponId());
-                        Log.e("couponsedit","++"+cpNames+cpDesc+percnt+st);
-                        if(st==1)
-                        {
+                        cpId = Integer.valueOf(response.body().getResponsedata().getData().get(i).getCouponId());
+                        Log.e("couponsedit", "++" + cpNames + cpDesc + percnt + st);
+                        if (st == 1) {
                             Coupon_Names.add(cpNames);
                             Coupon_Desc.add(cpDesc);
                             Coupon_percentage.add(percnt);
@@ -147,14 +148,16 @@ public void couponList()
 
                     }
                 }
-                Log.e("couponsedit","++ values"+Coupon_Names+Coupon_Desc+Coupon_percentage+Coupon_id);
-                dialog.dismiss();
-                customAdapter_coupons.notifyDataSetChanged();
+                    }
+                    Log.e("couponsedit", "++ values" + Coupon_Names + Coupon_Desc + Coupon_percentage + Coupon_id);
+                    dialog.dismiss();
+                    customAdapter_coupons.notifyDataSetChanged();
 
             }
             catch (Exception e)
             {
 Log.e("couponsedit","the coupons are exception"+e);
+dialog.dismiss();
             }
         }
 

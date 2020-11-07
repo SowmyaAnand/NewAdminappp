@@ -40,8 +40,13 @@ this.text=cat;
 
     @Override
     public CharSequence getPageTitle(int position) {
+if(!(mFragmentTitleList.isEmpty()))
 
-        return mFragmentTitleList.get(position);
+{
+    return mFragmentTitleList.get(position);
+}
+return "";
+
     }
     @Override
     public int getCount() {

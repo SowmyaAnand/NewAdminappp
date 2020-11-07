@@ -91,22 +91,22 @@
                     android:layout_height="wrap_content"
                     android:textColorHighlight="@color/colorPrimary"
                     android:inputType="text"/>
-                <EditText
-                    android:id="@+id/Pincode_account"
-                    android:enabled="false"
-                    android:layout_marginTop="10dp"
-                    android:padding="8dp"
-                    android:textColorHint="@color/Gray"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:textSize="15sp"
-                    android:hint="UPI ID"
-                    android:background="@drawable/customized_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHighlight="@color/colorPrimary"
-                    android:inputType="text"/>
+<!--                <EditText-->
+<!--                    android:id="@+id/Pincode_account"-->
+<!--                    android:enabled="false"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:textColorHint="@color/Gray"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textSize="15sp"-->
+<!--                    android:hint="UPI ID"-->
+<!--                    android:background="@drawable/customized_edittext"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColorHighlight="@color/colorPrimary"-->
+<!--                    android:inputType="text"/>-->
 
 
 

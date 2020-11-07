@@ -89,10 +89,14 @@ public class EditCategories extends Fragment {
         String savedString = shared2.getString("categories_no_new", "");
         Log.e("editcategories","the categories are images arae "+categoriesEditCategies_image);
         String[] numbers = savedString.split(",");//if spaces are uneven, use \\s+ instead of " "
-        for (String number : numbers) {
-            if(!(numbers.equals("")||numbers.equals(null)))
-            {
-                categoriescatno_edit.add(Integer.valueOf(number));
+        if(!(savedString.isEmpty()))
+        {
+            for (String number : numbers) {
+                if(!(numbers.equals("")||numbers.equals(null)))
+                {
+                    categoriescatno_edit.add(Integer.valueOf(number));
+                }
+
             }
 
     }
