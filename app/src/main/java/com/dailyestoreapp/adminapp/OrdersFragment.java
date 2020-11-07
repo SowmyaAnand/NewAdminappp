@@ -140,7 +140,7 @@ ACProgressFlower dialog;
                                 else
                                 if(pay_type.equals("1"))
                                 {
-                                    pay_text="PAID ON GPAY";
+                                    pay_text="PAID ON PAYTM";
                                 }
                                 payment_typeadapter_pending.add(pay_text);
                                 count_typeadapter_pending.add(count);

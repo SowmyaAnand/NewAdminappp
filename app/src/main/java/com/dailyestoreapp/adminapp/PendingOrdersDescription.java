@@ -155,7 +155,7 @@ TextView order_coupon_applied_total_description,order_common_total;
 
                                     pay_text = "CASH ON DELIVERY";
                                 } else if (pay_type.equals("1")) {
-                                    pay_text = "PAID ON GPAY";
+                                    pay_text = "PAID ON PAYTM";
                                 }
                                 payment_typeadapter_pending.add(pay_text);
                                 //  payment_typeadapter_postcode.add(ptcode);
@@ -224,7 +224,7 @@ else if((correspondingaddresss.equals(address))&&(bk_type.equals("0")))
 
                                         pay_text = "CASH ON DELIVERY";
                                     } else if (pay_type.equals("1")) {
-                                        pay_text = "PAID ON GPAY";
+                                        pay_text = "PAID ON PAYTM";
                                     }
                                     payment_typeadapter_pending.add(pay_text);
                                     //  payment_typeadapter_postcode.add(ptcode);
